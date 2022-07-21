@@ -4,23 +4,43 @@
 {% endblock %}
 
 {% block body %}
-<a href="{{path('app_service_new')}}">Ajouter un nouveau service</a>
-	<div class="row">
-		{% for service in services %}
-			<div class="col-lg-3 col-md-4 col-sm-12 m-1">
-				<div class="card" style="width: 25rem;">
-					<img src="{{service.url}}" class="card-img-top" alt="...">
-					<div class="card-body">
-						<h5 class="card-title">{{service.service}}</h5>
-						<p class="card-text">{{service.description}}</p>
-                        <div class="col-md-12 text-center">
-						<a href="#" class="btn btn-dark w-30 mx-auto mt-5">commander</a>
-                        <a href="{{path('app_service_show',{id:service.id})}}" class="btn btn-dark w-30 mx-auto mt-5">Voir</a>
-                        <a href="{{path('app_service_edit',{id:service.id})}}" class="btn btn-dark w-30 mx-auto mt-5">Modifier</a>
-                        </div>
+{% if app.user is defined and app.user is not empty %}
+{% if is_granted	('ROLE_ADMIN') == true %}
+	<a class= "btn btn-dark w-35 mx-auto mt-5" href="{{path('app_service_new')}}">Ajouter un nouveau service</a>
+{% endif %}
+{% endif %}
+	<section class="pt-4">
+		<div
+			class="container px-lg-5">
+			<!-- Page Features-->
+			
+				<div class="row gx-lg-5">
+				{% for service in services %}
+					<div class="col-lg-6 col-xxl-6 mb-5">
+						<div class="card bg-light border-0 h-100">
+							<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+								<div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+									<img src="{{service.url}}" class="card-img-top" alt="...">
+								</div>
+								<h5 class="fs-4 fw-bold">{{service.service}}</h5>
+								<p class="mb-0">{{service.description}}</p>
+								<div class="col-md-12 text-center">
+									<a href="#" class="btn btn-dark w-35 mx-auto mt-5">demander un devis</a>
+									{% if app.user is defined and app.user is not empty %}
+									{% if is_granted	('ROLE_ADMIN') == true %}
+									<a href="{{path('app_service_show',{id:service.id})}}" class="btn btn-dark w-30 mx-auto mt-5">Voir</a>
+									<a href="{{path('app_service_edit',{id:service.id})}}" class="btn btn-dark w-30 mx-auto mt-5">Modifier</a>
+									{% endif %}
+									{% endif %}
+								</div>
+							</div>
+						</div>
 					</div>
+					{% endfor %}
 				</div>
-			</div>
-		{% endfor %}
-	</div>
-{% endblock %}
+			
+		</div>
+		
+	</section>
+			
+		{% endblock %}

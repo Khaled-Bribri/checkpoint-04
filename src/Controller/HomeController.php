@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 #[Route('/home')]
 class HomeController extends AbstractController
 {
@@ -21,6 +21,7 @@ class HomeController extends AbstractController
             'presentations'=>$presentations
         ]);
     }
+    #[IsGranted('ROLE_ADMIN', message: 'No access! Get out!')]
     #[Route('/{id}/edit', name: 'app_home_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Presentation $presentation,PresentationRepository $presentationRepository):Response
     {

@@ -5,8 +5,9 @@
 
 {% block body %}
 	{% block stylesheets %}
-        {{ encore_entry_link_tags('app') }}
 		{{ encore_entry_link_tags('login') }}
+        {{ encore_entry_link_tags('app') }}
+
 		
 	{% endblock %}
 	{% for flash_error in app.flashes('verify_email_error') %}
@@ -30,16 +31,16 @@
 											{{ form_start(registrationForm) }}
 											<h4 class="mb-4 pb-3">Créer un compte</h4>
 											<div class="form-group">
-												{{ form_row(registrationForm.nom,{'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+												{{ form_row(registrationForm.nom,{'label_attr': {'class': 'col-sm-12 control-label'}}) }}
 											</div>
 											<div class="form-group mt-2">
-												{{ form_row(registrationForm.prenom,{'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+												{{ form_row(registrationForm.prenom,{'label_attr': {'class': 'col-sm-12 control-label'}}) }}
 											</div>
 											<div class="form-group mt-2">
-												{{ form_row(registrationForm.email,{'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+												{{ form_row(registrationForm.email,{'label_attr': {'class': 'col-sm-12 control-label'}}) }}
 											</div>
 											<div class="form-group mt-2">
-												{{ form_row(registrationForm.plainPassword,{'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+												{{ form_row(registrationForm.plainPassword,{'label_attr': {'class': 'col-sm-12 control-label'}}) }}
 											</div>
 
 

@@ -22,10 +22,10 @@
 	</head>
 	<body>
 		<div id="wrap">
-		<header id="header">
+		<header id="header"class="mb-5" >
 			{% include "./layout/navbar.html.twig" %}
 		</header>
-		<main id="main">
+		<main id="main" >
 			{% block body %}
 				<div>
 					{% for flash_message in app.session.flashBag.get('success') %}

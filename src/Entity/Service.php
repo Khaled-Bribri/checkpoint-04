@@ -22,7 +22,7 @@ class Service
     #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'service')]
     private Collection $commandes;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column(type: Types::TEXT)]
