@@ -38,3 +38,20 @@
 .navbar-collapse.collapse.in {
     display: block !important;
 }
+.btn-secondary {
+    background-color:  #DCFEFE;
+    border-radius: 5px;
+    border-color: #DCFEFE;
+    color: black;
+}
+.btn-check:hover+.btn-secondary, .btn-check:checked+.btn-secondary, .btn-secondary.active, .btn-secondary:active, .show>.btn-secondary.dropdown-toggle {
+    background-color: #DCFEFE;
+    border-color: #DCFEFE;
+    color: black
+}
+
+.btn-check:active+.btn-secondary, .btn-check:checked+.btn-secondary, .btn-secondary.active, .btn-secondary:active, .show>.btn-secondary.dropdown-toggle {
+    background-color: #DCFEFE;
+    border-color: #DCFEFE;
+    color: black
+}
