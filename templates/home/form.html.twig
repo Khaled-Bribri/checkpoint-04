@@ -7,7 +7,7 @@ Editer la page Home
 {% endblock %}
 
 {% block body %}
-
+<div class="m-5">
 {{form_start(form)}}
 {{form_widget(form)}}
 <div class="col-md-12 text-center">
@@ -15,5 +15,5 @@ Editer la page Home
 <a class="btn btn-dark w-25 mx-auto mt-5" href="{{path('app_home')}}">Retour</a>
 </div>
 {{form_end(form)}}
-
+</div>
 {% endblock %}

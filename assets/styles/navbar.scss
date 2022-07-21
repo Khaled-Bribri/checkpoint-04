@@ -18,6 +18,9 @@
     border-radius: 5px;
     background-color: aliceblue;
 }
+#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
+    background-color:#DCFEFE;
+}
 
 .nav-item.active {
     background-color: #DCFEFE;
@@ -37,4 +40,21 @@
 
 .navbar-collapse.collapse.in {
     display: block !important;
+}
+.btn-secondary {
+    background-color:  #DCFEFE;
+    border-radius: 5px;
+    border-color: #DCFEFE;
+    color: black;
+}
+.btn-check:hover+.btn-secondary, .btn-check:checked+.btn-secondary, .btn-secondary.active, .btn-secondary:active, .show>.btn-secondary.dropdown-toggle {
+    background-color: #DCFEFE;
+    border-color: #DCFEFE;
+    color: black
+}
+
+.btn-check:active+.btn-secondary, .btn-check:checked+.btn-secondary, .btn-secondary.active, .btn-secondary:active, .show>.btn-secondary.dropdown-toggle {
+    background-color: #DCFEFE;
+    border-color: #DCFEFE;
+    color: black
 }

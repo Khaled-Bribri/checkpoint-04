@@ -4,18 +4,32 @@
 {% block body %}
 
 	{% for presentation in presentations %}
-		<div class="row">
-			<div class="col-lg-8 col-md-8 col-sm-12 ">
-				
-				<a href="{{path('app_home_edit',{id:presentation.id})}}">Modifier</a>
-				<h1 class="m-3">{{presentation.titre}}</h1>
-				<p class="m-3">
-					{{presentation.presentation}}
-				</p>
+		<section class="pt-4">
+			<div
+				class="container px-lg-5">
+				<!-- Page Features-->
+				<div class="row gx-lg-5">
+					<div class="col-lg-6 col-xxl-12 mb-5">
+						<div class="card bg-light border-0 h-100">
+							<div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+								<h2 class="fs-4 fw-bold">{{presentation.titre}}</h2>
+								<div class="feature  bg-gradient text-white rounded-3 mb-5 mt-5">
+									<img src="{{presentation.url}}" alt="d12acad905a0fd2f9478096ea993dcca" class="img-thumbnail">
+								</div>
+
+								<p class="mb-0">{{presentation.presentation}}</p>
+								{% if app.user is defined and app.user is not empty %}
+									{% if is_granted('ROLE_ADMIN') == true %}
+										<a class="btn btn-dark w-25 mx-auto mt-5" href="{{path('app_home_edit',{id:presentation.id})}}">Modifier</a>
+									{% endif %}
+								{% endif %}
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-12">
-				<img src="{{presentation.url}}" alt="d12acad905a0fd2f9478096ea993dcca" class="img-thumbnail">
-			</div>
-		</div>
+
+		</section>
 	{% endfor %}
 {% endblock %}
