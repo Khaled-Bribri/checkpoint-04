@@ -1,0 +1,40 @@
+#header{
+    position: relative;
+  }
+.navbar-brand {
+    padding: 6px 16px;
+    font-size: 16px;
+}
+
+.navbar-nav {
+    width: 100%;
+    padding-right: 30px;
+}
+
+.nav-item {
+    padding: 0px 8px;
+    margin: 0px 3px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: aliceblue;
+}
+
+.nav-item.active {
+    background-color: #DCFEFE;
+}
+
+.nav-item.active:hover {
+    background-color: #DCFEFE;
+}
+
+.nav-item:hover {
+    background-color:  #DCFEFE;
+}
+
+.nav-link {
+    padding: 5px;
+}
+
+.navbar-collapse.collapse.in {
+    display: block !important;
+}
