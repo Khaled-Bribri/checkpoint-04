@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}Accueil
+{% endblock %}
+{% block body %}
+
+	{% for presentation in presentations %}
+		<div class="row">
+			<div class="col-lg-8 col-md-8 col-sm-12 ">
+				
+				<a href="{{path('app_home_edit',{id:presentation.id})}}">Modifier</a>
+				<h1 class="m-3">{{presentation.titre}}</h1>
+				<p class="m-3">
+					{{presentation.presentation}}
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12">
+				<img src="{{presentation.url}}" alt="d12acad905a0fd2f9478096ea993dcca" class="img-thumbnail">
+			</div>
+		</div>
+	{% endfor %}
+{% endblock %}

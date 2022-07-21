@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ServiceController!
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+
+		<div class="col-lg-3 col-md-4 col-sm-12 m-1">
+			<div class="card" style="width: 25rem;">
+				<img src="{{service.url}}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{service.service}}</h5>
+					<p class="card-text">{{service.description}}</p>
+					<div class="col-md-12 text-center">
+						<a href="#" class="btn btn-dark w-30 mx-auto mt-5">commander</a>
+                        <a class="btn btn-dark w-25 mx-auto mt-5" href="{{path('app_service')}}">Retour</a>
+                        {{ include('service/delete.html.twig') }}
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}
+
+Editer la page Home
+
+{% endblock %}
+
+{% block body %}
+
+{{form_start(form)}}
+{{form_widget(form)}}
+<div class="col-md-12 text-center">
+<button class="btn btn-dark w-25 mx-auto mt-5">{{ button_label|default('Ajouter') }}</button>
+<a class="btn btn-dark w-25 mx-auto mt-5" href="{{path('app_home')}}">Retour</a>
+</div>
+{{form_end(form)}}
+
+{% endblock %}
