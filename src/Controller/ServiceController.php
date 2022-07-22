@@ -70,7 +70,7 @@ class ServiceController extends AbstractController
             $serviceRepository->remove($service, true);
         }
 
-        return $this->redirectToRoute('app_service_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_service', [], Response::HTTP_SEE_OTHER);
     }
     
 
