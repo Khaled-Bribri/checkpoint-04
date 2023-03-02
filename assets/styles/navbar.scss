@@ -17,16 +17,15 @@
     text-align: center;
     border-radius: 5px;
     background-color: aliceblue;
-}
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover {
-    background-color:#DCFEFE;
+    border-left: 3px solid blue;
 }
 
-.nav-item.active {
-    background-color: #DCFEFE;
+.active {
+    background-color: blue;
+    color: white !important;   
 }
 
-.nav-item.active:hover {
+.nav-item:hover {
     background-color: #DCFEFE;
 }
 
