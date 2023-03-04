@@ -1,0 +1,6 @@
+
+services:
+    Symfony\Component\Dotenv\Dotenv: ~
+    App\Services\EnvLoader:
+        arguments:
+            - '%kernel.project_dir%/.env'
