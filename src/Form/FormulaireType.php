@@ -19,20 +19,29 @@ class FormulaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fullName',TextType::class,[
-                'label'=>'Nom Prenom',
-                'attr'=>["class"=>'form-control']])
-            ->add('email',EmailType::class,[
-                'label'=>'Email',
-                'attr'=>["class"=>'form-control']])
-
-            ->add('message',TextareaType::class,[
-                'label'=>'Message',
-                'attr'=>["class"=>'form-control']])
-            ->add('Envoyer', SubmitType::class,[
-                'attr' =>["class" =>'btn-primary']
+            ->add('fullName', TextType::class, [
+                'label' => 'Nom Prenom',
+                'attr' => ["class" => 'form-control']
             ])
-        ;
+            ->add('email', EmailType::class, [
+                'label' => 'Email',
+                'attr' => ["class" => 'form-control']
+            ])
+            ->add('sujet', TextType::class, [
+                'label' => 'sujet',
+                'attr' => ["class" => 'form-control']
+            ])
+            ->add('message', TextareaType::class, [
+                'label' => 'Message',
+                'attr' => [
+                    "rows" => 5,
+                    "placeholder" => "Ecrivez votre message",
+                    "class" => 'form-control'
+                ]
+            ])
+            ->add('Envoyer', SubmitType::class, [
+                'attr' => ["class" => 'btn btn-primary']
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

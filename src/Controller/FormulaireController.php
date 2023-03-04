@@ -6,6 +6,7 @@ use App\Entity\Formulaire;
 use App\Form\FormulaireType;
 use App\Services\MailerService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Dotenv\Dotenv;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -20,7 +21,10 @@ class FormulaireController extends AbstractController
         $form->handleRequest($request);
         if($form->isSubmitted() and $form->isValid() )
         {
-
+            $contactData = $form->getData();
+            $mailerService->sendEmail($contactData->getSujet(),$contactData->getMessage(),$contactData->getEmail());
+            $this->addFlash('success', 'Vore message a été envoyé');
+            return $this->redirectToRoute('contact');
         }
 
         return $this->render('formulaire/index.html.twig', [
