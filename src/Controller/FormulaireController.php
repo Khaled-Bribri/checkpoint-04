@@ -24,7 +24,7 @@ class FormulaireController extends AbstractController
             $contactData = $form->getData();
             $mailerService->sendEmail($contactData->getSujet(),$contactData->getMessage(),$contactData->getEmail());
             $this->addFlash('success', 'Vore message a été envoyé');
-            return $this->redirectToRoute('contact');
+            return $this->redirectToRoute('app_home');
         }
 
         return $this->render('formulaire/index.html.twig', [
