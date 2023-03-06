@@ -1,4 +1,4 @@
 framework:
     mailer:
         enabled: true
-        dsn: 'smtp://mohamed.bribri@outlook.fr:Mouad2015!@smtp.office365.com:587?encryption=STARTTLS&auth_mode=login'
+        dsn: '%env(MAILER_DSN)%'
