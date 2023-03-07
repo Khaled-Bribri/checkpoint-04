@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Formulaire;
 use App\Form\FormulaireType;
-use App\Services\MailerService;
+use App\Service\MailerService;
 use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,13 +17,13 @@ class FormulaireController extends AbstractController
     #[Route('/', name: 'app_formulaire')]
     public function index(Request $request, MailerService $mailerService): Response
     {
-        $form = new Formulaire();
-        $form = $this->createForm(FormulaireType::class, $form);
+        $formulaire = new Formulaire();
+        $form = $this->createForm(FormulaireType::class, $formulaire);
         $form->handleRequest($request);
         if ($form->isSubmitted() and $form->isValid()) {
             $contactData = $form->getData();
             try {
-                $mailerService->sendEmail($contactData->getSujet(), $contactData->getMessage(), $contactData->getEmail());
+                $mailerService->sendEmail($contactData->getEmail(), $contactData->getSujet(), $contactData->getMessage());
                 $this->addFlash('success', 'Vore message a été envoyé');
                 return $this->redirectToRoute('app_home');
             } catch (Exception $e) {
