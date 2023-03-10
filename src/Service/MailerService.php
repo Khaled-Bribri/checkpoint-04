@@ -21,15 +21,15 @@ class MailerService
     public function sendEmail(
         string $receiver,
         string $subject,
-        string $template,
+        string $text,
         mixed $options = null,
     ): void {
         $email = (new TemplatedEmail())
             ->from($this->envLoader->getEmail())
             ->to($receiver)
             ->subject($subject)
-            // path of the Twig template to render
-            ->html($template)
+            ->text($text)
+            ->html('<p>See Twig integration for better HTML integration!</p>')
             // pass variables (name => value) to the template
             ->context([
                 'update_date' => new DateTime('now'),
