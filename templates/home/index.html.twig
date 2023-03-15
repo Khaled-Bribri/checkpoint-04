@@ -5,6 +5,9 @@
 
 	{% for presentation in presentations %}
 		<section class="pt-4">
+			{% for flashMessage in app.flashes('success') %}
+				<div class="alert alert-success">{{ flashMessage }}</div>
+			{% endfor %}
 			<div
 				class="container px-lg-5">
 				<!-- Page Features-->
