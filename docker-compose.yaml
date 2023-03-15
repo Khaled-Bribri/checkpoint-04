@@ -1,0 +1,27 @@
+version: '3'
+services:
+  web:
+    entrypoint:
+    - sleep
+    - infinity
+    image: docker/dev-environments-go:stable-1
+    init: true
+    volumes:
+    - .:/var/www/html
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
+    build: .
+    ports:
+      - "9000"
+    depends_on:
+      - db
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: smsexpress
+      MYSQL_USER: khaledbribri
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306"
